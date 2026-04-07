@@ -19,9 +19,10 @@
 - [xinerama-monitors-xorder](https://dwm.suckless.org/patches/xinerama-monitors-xorder/)
 
 ### Custom Edits and Tweaks
-- Made Focus Follows Mouse toggleable and display an on/off indicator (the indicator was inspired by the windowfollow patch).
 - When focus was on another monitor, slstatus would freeze; now updates globally.
+- Made Focus Follows Mouse toggleable and display an on/off indicator (the indicator was inspired by the windowfollow patch).
 - Implemented a fix for the staticstatus patch, where the systray would be on the wrong monitor when more than three monitors were connected; now it correctly pins to my main monitor.
+- Modified tagothermonitor and windowfollow to work together; when windowfollow is enabled and I use tagothermonitor, the window will be sent to the selected monitor + change me to that tag. When off, it will simply just send the window to the tag on the selected monitor, while retaining the current tag that is open.
 ### Theme
 - [rose-pine-iris](<https://github.com/rose-pine/dwm>)
   - Removed background color from the centered window; retained it for workspaces.
