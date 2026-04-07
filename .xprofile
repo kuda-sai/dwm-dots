@@ -1,0 +1,35 @@
+# --- GLOBAL INPUT METHOD SETTINGS ---
+export XMODIFIERS="@im=fcitx5"
+export XMODIFIER="@im=fcitx5"
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export DefaultIMModule=fcitx5
+
+# --- Optimizations for my NVIDIA GTX 1060 GPU & Intel i5-3570K CPU ---
+# --- GLOBAL NVIDIA & PERFORMANCE (Safe for Cinnamon too) ---
+if [ -f "/usr/lib/dri/nvidia_drv_video.so" ]; then
+    export LIBVA_DRIVER_NAME=nvidia                 # Forces VA-API to use NVIDIA (required for hardware video decoding)
+    export MOZ_DISABLE_RDD_SANDBOX=1                # Allows the browser to 'talk' to the NVIDIA driver through the sandbox
+    export NVD_BACKEND=direct                       # Uses the modern, faster path for NVIDIA video decoding (bypasses old bridges)
+    export MOZ_X11_EGL=1                            # Forces the modern EGL backend for better GPU-to-screen performance
+    export VDPAU_DRIVER=nvidia                      # Directs legacy video acceleration to the NVIDIA driver
+    export MOZ_DISABLE_VAAPI_SANDBOX=1              # Permits the video decoder to access NVIDIA hardware through the sandbox
+    export __GL_THREADED_OPTIMIZATIONS=1            # Offloads driver tasks to multiple CPU cores to prevent UI stuttering
+    export _JAVA_OPTIONS="-Dsun.java2d.opengl=true" # Forces Java-based apps (IDE's, tools) to use GPU for window rendering
+    export NO_AT_BRIDGE=1                           # Disables unused accessibility bus to reduce background CPU interrupts
+fi
+
+# --- WM SPECIFIC CONFIGURATION (i3 & dwm) ---
+if [ "$DESKTOP_SESSION" = "i3" ] || [ "$DESKTOP_SESSION" = "dwm" ]; then
+    # Theme & D-Bus
+    export XDG_CURRENT_DESKTOP=$DESKTOP_SESSION
+    export GTK_USE_PORTAL=1
+    export QT_QPA_PLATFORMTHEME=gtk3
+    dbus-update-activation-environment --systemd --all
+
+    # Low-Latency & VRR (Aggressive tweaks for window managers)
+    export __GL_GSYNC_ALLOWED=1        # Enables G-Sync/VRR support
+    export __GL_VRR_ALLOWED=1          # Enables Variable Refresh Rate support
+    export __GL_YIELD="USLEEP"         # Reduces CPU "spinning" while waiting for GPU
+    export __GL_MAX_FRAMES_IN_FLIGHT=1 # Forces 1:1 sync between CPU and GPU
+fi

@@ -1,0 +1,52 @@
+#################################
+#           Global              #
+#################################
+
+### Nord VPN Related Alias' ###
+
+alias nord='nordvpn' # Shorten nordvpn syntax
+
+## Enable or Disable killswitch ##
+
+alias nordkillon='nordvpn set killswitch on'   # Enable killswitch
+alias nordkilloff='nordvpn set killswitch off' # Disable killswitch
+
+### End Nord Related Alias' ###
+
+### ls Related Alias' ###
+
+alias ls="eza" # turn eza into ls
+alias ll="eza -l" # turn eza -l into ll
+alias la="eza -la" # turn eza -la into la
+
+### End ls Related Alias' ###
+
+# Clear terminal history #
+alias clear_history='history -c && history -w'
+
+# shorten remove command
+alias yeet='sudo pacman -Rns'
+
+# add color to grep
+alias grep='grep --color=auto'
+
+# Rename nvim to vim for quicker typing // Old habits die hard
+alias nv="nvim"
+
+# Custom shutdown command
+alias oyasumi="shutdown -h now"
+
+# Open nvtop with encoder/decoder
+alias nvtop="nvtop -E -1"
+
+# Custom remove firmware for firmware I don't use
+# But I'm unsure if I really need or not
+alias yeet_firmware="sudo pacman -Rdd linux-firmware-amdgpu linux-firmware-broadcom linux-firmware-radeon linux-firmware-whence linux-firmware-realtek linux-firmware-mediatek linux-firmware-atheros linux-firmware-cirrus"
+
+#################################
+#          i3 & dwm             #
+#################################
+if [ "$DESKTOP_SESSION" = "i3" ] || [ "$DESKTOP_SESSION" = "dwm" ]; then
+    # alias mpv="mpv --profile=i3-nvidia"
+    alias blank_off="xset s off && xset -dpms && xset s noblank"
+fi
