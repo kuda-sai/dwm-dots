@@ -30,6 +30,7 @@
 
 ## Previews
 ![Rofi](/Showcase/1-desktop-rofi.png)
-![Floating](/Showcase/2-desktop-floating.png)
-![Tiling](/Showcase/3-desktop-tiling.png)
-![Grid](/Showcase/4-desktop-grid.png)
+![MPV](/Showcase/2-mpv.png)
+![Floating](/Showcase/3-desktop-floating.png)
+![Tiling](/Showcase/4-desktop-tiling.png)
+![Grid](/Showcase/5-desktop-grid.png)
