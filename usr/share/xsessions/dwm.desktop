@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=dwm
+Comment=Dynamic Window Manager
+Exec=/home/kuda/.local/share/dwm-session/dwm-autostart.sh
+Type=Application
+DesktopNames=dwm
+Keywords=tiling;wm;windowmanager;
